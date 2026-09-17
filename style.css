@@ -828,5 +828,67 @@ footer {
   .btn {
     width: 100%;
   }
+/* ================= CONTACT INFO ================= */
 
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 22px 25px;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  box-shadow: 0 12px 35px rgba(25, 54, 83, 0.06);
+  transition: 0.3s ease;
+}
+
+.contact-item:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow);
+}
+
+.contact-icon {
+  width: 55px;
+  height: 55px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  background: var(--blue-light);
+  color: var(--blue);
+  font-size: 27px;
+  font-weight: 700;
+}
+
+.contact-item span {
+  display: block;
+  color: #7893aa;
+  font-size: 12px;
+  margin-bottom: 3px;
+}
+
+.contact-item strong {
+  display: block;
+  color: var(--blue-dark);
+  font-size: 16px;
+  word-break: break-word;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 650px) {
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
 }
