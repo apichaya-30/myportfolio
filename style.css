@@ -46,7 +46,7 @@ button{font:inherit}
 .section{width:min(1120px,90%);margin:0 auto;padding:105px 0}
 .hero{min-height:calc(100vh - 90px);display:grid;grid-template-columns:1.05fr .95fr;gap:70px;align-items:center;padding-top:70px}
 .eyebrow{font-family:"Kanit";letter-spacing:2px;color:var(--blue);font-size:.85rem;font-weight:600;margin-bottom:8px}
-.hero h1{font-family:"Kanit";font-size:clamp(3.4rem,7vw,6.5rem);line-height:.96;letter-spacing:-2px;margin:10px 0 24px}
+.hero h1{font-family:"Kanit";font-size:clamp(3rem,5.5vw,5.2rem);line-height:.96;letter-spacing:-2px;margin:10px 0 24px;white-space:nowrap}
 .hero h1 span{color:var(--blue)}
 .hero-desc{font-size:1.1rem;line-height:1.9;color:var(--muted);max-width:650px}
 .hero-buttons{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
@@ -135,22 +135,8 @@ footer{text-align:center;padding:35px 20px;color:#7890a4;font-size:.82rem}
 }
 @media(max-width:600px){
   .section{padding:75px 0}.navbar{margin-top:8px}
-  .hero h1{font-size:3.4rem}.hero-desc{font-size:1rem}
+  .hero h1{font-size:3.4rem;white-space:normal}.hero-desc{font-size:1rem}
   .mini-info,.facts,.activity-grid,.certificate-grid,.gallery{grid-template-columns:1fr}
   .sop-card{padding:30px 24px}.quote-mark{font-size:6rem}
   .contact-card{padding:32px 24px}
-  .hero h1 .firstname {
-  color: #193653;
-  white-space: nowrap;
-}
-
-.hero h1 span {
-  color: var(--blue);
-}
-
-@media (max-width: 600px) {
-  .hero h1 .firstname {
-    white-space: normal;
-  }
-}
 }
