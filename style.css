@@ -139,4 +139,18 @@ footer{text-align:center;padding:35px 20px;color:#7890a4;font-size:.82rem}
   .mini-info,.facts,.activity-grid,.certificate-grid,.gallery{grid-template-columns:1fr}
   .sop-card{padding:30px 24px}.quote-mark{font-size:6rem}
   .contact-card{padding:32px 24px}
+  .hero h1 .firstname {
+  color: #193653;
+  white-space: nowrap;
+}
+
+.hero h1 span {
+  color: var(--blue);
+}
+
+@media (max-width: 600px) {
+  .hero h1 .firstname {
+    white-space: normal;
+  }
+}
 }
