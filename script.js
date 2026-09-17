@@ -1,87 +1,141 @@
-document.addEventListener("DOMContentLoaded", () => {
+const menuToggle = document.querySelector(".menu-toggle");
+const navLinks = document.querySelector(".nav-links");
 
-  /* ================= MENU ================= */
+menuToggle?.addEventListener("click", () => {
+  navLinks?.classList.toggle("active");
+});
 
-  const menuToggle = document.querySelector(".menu-toggle");
-  const navLinks = document.querySelector(".nav-links");
 
-  if (menuToggle && navLinks) {
-    menuToggle.addEventListener("click", () => {
-      navLinks.classList.toggle("open");
+document.querySelectorAll(".nav-links a").forEach(link => {
+
+  link.addEventListener("click", () => {
+    navLinks?.classList.remove("active");
+  });
+
+});
+
+
+/* กลับขึ้นด้านบน */
+
+document
+  .querySelector("#backToTop")
+  ?.addEventListener("click", event => {
+
+    event.preventDefault();
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
     });
 
-    navLinks.querySelectorAll("a").forEach(link => {
-      link.addEventListener("click", () => {
-        navLinks.classList.remove("open");
-      });
-    });
+  });
+
+
+/* MODAL */
+
+const modal = document.getElementById("imageModal");
+const modalImage = document.getElementById("modalImage");
+const modalTitle = document.getElementById("modalTitle");
+const closeModal = document.querySelector(".modal-close");
+
+
+function openModal(image, title = "") {
+
+  if (!modal || !modalImage || !modalTitle) {
+    return;
   }
 
+  modalImage.src = image;
 
-  /* ================= SMOOTH SCROLL ================= */
+  modalImage.alt =
+    title || "Portfolio image";
 
-  document.querySelectorAll('a[href^="#"]').forEach(link => {
+  modalTitle.textContent = title;
 
-    link.addEventListener("click", function (event) {
+  modal.classList.add("open");
 
-      const targetId = this.getAttribute("href");
+  modal.setAttribute(
+    "aria-hidden",
+    "false"
+  );
+}
 
-      if (!targetId || targetId === "#") {
-        return;
-      }
 
-      const target = document.querySelector(targetId);
+function hideModal() {
 
-      if (target) {
-        event.preventDefault();
+  if (!modal || !modalImage) {
+    return;
+  }
 
-        target.scrollIntoView({
-          behavior: "smooth",
-          block: "start"
-        });
-      }
+  modal.classList.remove("open");
+
+  modal.setAttribute(
+    "aria-hidden",
+    "true"
+  );
+
+  modalImage.src = "";
+
+}
+
+
+document
+  .querySelectorAll("[data-image]")
+  .forEach(item => {
+
+    item.addEventListener("click", () => {
+
+      openModal(
+        item.dataset.image,
+        item.dataset.title || ""
+      );
 
     });
 
   });
 
 
-  /* ================= BACK TO TOP ================= */
+closeModal?.addEventListener(
+  "click",
+  hideModal
+);
 
-  const backToTop = document.querySelector('a[href="#top"]');
 
-  if (backToTop) {
+modal?.addEventListener("click", event => {
 
-    backToTop.addEventListener("click", function (event) {
-
-      event.preventDefault();
-
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
-
-    });
-
+  if (event.target === modal) {
+    hideModal();
   }
 
+});
 
-  /* ================= REVEAL ANIMATION ================= */
 
-  const revealElements = document.querySelectorAll(".reveal");
+document.addEventListener("keydown", event => {
 
-  if ("IntersectionObserver" in window) {
+  if (event.key === "Escape") {
+    hideModal();
+  }
 
-    const observer = new IntersectionObserver(
-      (entries, observer) => {
+});
+
+
+/* SCROLL ANIMATION */
+
+if ("IntersectionObserver" in window) {
+
+  const observer =
+    new IntersectionObserver(
+      entries => {
 
         entries.forEach(entry => {
 
           if (entry.isIntersecting) {
 
-            entry.target.classList.add("active");
+            entry.target.classList.add("show");
 
-            observer.unobserve(entry.target);
+            observer.unobserve(
+              entry.target
+            );
 
           }
 
@@ -89,143 +143,41 @@ document.addEventListener("DOMContentLoaded", () => {
 
       },
       {
-        threshold: 0.08
+        threshold: 0.12
       }
     );
 
-    revealElements.forEach(element => {
-      observer.observe(element);
-    });
 
-  } else {
+  document
+    .querySelectorAll(".reveal")
+    .forEach(el => {
 
-    revealElements.forEach(element => {
-      element.classList.add("active");
-    });
-
-  }
-
-
-  /* ================= IMAGE MODAL ================= */
-
-  const modal = document.getElementById("imageModal");
-  const modalImage = document.getElementById("modalImage");
-  const modalTitle = document.getElementById("modalTitle");
-  const modalClose = document.querySelector(".modal-close");
-
-
-  function openModal(image, title = "") {
-
-    if (!modal || !modalImage) {
-      return;
-    }
-
-    modalImage.src = image;
-    modalImage.alt = title || "Portfolio image";
-
-    if (modalTitle) {
-      modalTitle.textContent = title;
-    }
-
-    modal.classList.add("show");
-    modal.setAttribute("aria-hidden", "false");
-
-    document.body.style.overflow = "hidden";
-  }
-
-
-  function closeModal() {
-
-    if (!modal) {
-      return;
-    }
-
-    modal.classList.remove("show");
-    modal.setAttribute("aria-hidden", "true");
-
-    document.body.style.overflow = "";
-
-    if (modalImage) {
-      modalImage.src = "";
-    }
-
-  }
-
-
-  /* Certificate */
-
-  document.querySelectorAll(".certificate-card").forEach(card => {
-
-    card.addEventListener("click", () => {
-
-      const image = card.dataset.image;
-      const title = card.dataset.title || "";
-
-      if (image) {
-        openModal(image, title);
-      }
+      observer.observe(el);
 
     });
 
-  });
 
+} else {
 
-  /* Gallery */
+  document
+    .querySelectorAll(".reveal")
+    .forEach(el => {
 
-  document.querySelectorAll(".gallery-item").forEach(item => {
-
-    item.addEventListener("click", () => {
-
-      const image = item.dataset.image;
-
-      if (image) {
-        openModal(image);
-      }
+      el.classList.add("show");
 
     });
 
-  });
+}
 
 
-  /* Close button */
+/* ปีปัจจุบัน */
 
-  if (modalClose) {
-    modalClose.addEventListener("click", closeModal);
-  }
+const year =
+  document.getElementById("year");
 
+if (year) {
 
-  /* Click outside image */
+  year.textContent =
+    new Date().getFullYear();
 
-  if (modal) {
-
-    modal.addEventListener("click", event => {
-
-      if (event.target === modal) {
-        closeModal();
-      }
-
-    });
-
-  }
-
-
-  /* ESC to close */
-
-  document.addEventListener("keydown", event => {
-
-    if (event.key === "Escape") {
-      closeModal();
-    }
-
-  });
-
-
-  /* ================= CURRENT YEAR ================= */
-
-  const year = document.getElementById("year");
-
-  if (year) {
-    year.textContent = new Date().getFullYear();
-  }
-
-});
+}
