@@ -1,143 +1,251 @@
-:root{
-  --blue:#1677ff;
-  --blue-dark:#0757c9;
-  --sky:#eaf5ff;
-  --ink:#17324d;
-  --muted:#668099;
-  --white:#fff;
-  --line:#dcecf9;
-  --shadow:0 18px 45px rgba(22,119,255,.12);
-  --radius:26px;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{
-  font-family:"Prompt",sans-serif;
-  color:var(--ink);
-  background:linear-gradient(180deg,#fafdff 0%,#edf7ff 52%,#fff 100%);
-  overflow-x:hidden;
-}
-body:has(.modal.open){overflow:hidden}
-a{text-decoration:none;color:inherit}
-button{font:inherit}
-.bg-orb{position:fixed;border-radius:50%;filter:blur(2px);opacity:.55;pointer-events:none;z-index:-1}
-.orb-1{width:360px;height:360px;background:#d8edff;top:90px;left:-180px}
-.orb-2{width:300px;height:300px;background:#d9f8ff;right:-140px;top:680px}
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio ของนางสาวอภิชญา แจ้น้อย">
+  <title>Portfolio | Apichaya Jaenoi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
 
-.navbar{
-  position:sticky;top:0;z-index:50;
-  width:min(1180px,92%);
-  margin:18px auto 0;
-  padding:13px 18px;
-  display:flex;align-items:center;justify-content:space-between;
-  background:rgba(255,255,255,.84);
-  backdrop-filter:blur(16px);
-  border:1px solid rgba(255,255,255,.9);
-  box-shadow:0 12px 35px rgba(20,80,130,.1);
-  border-radius:20px;
-}
-.logo{font-family:"Kanit";font-size:1.45rem;font-weight:700;color:var(--blue)}
-.logo span{color:#27b7ff}
-.nav-links{display:flex;gap:8px}
-.nav-links a{padding:9px 13px;border-radius:12px;color:#4c6b83;font-size:.92rem;transition:.25s}
-.nav-links a:hover{background:var(--sky);color:var(--blue)}
-.menu-toggle{display:none;border:0;background:transparent;color:var(--blue);font-size:1.6rem;cursor:pointer}
+<body>
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
 
-.section{width:min(1120px,90%);margin:0 auto;padding:105px 0}
-.hero{min-height:calc(100vh - 90px);display:grid;grid-template-columns:1.05fr .95fr;gap:70px;align-items:center;padding-top:70px}
-.eyebrow{font-family:"Kanit";letter-spacing:2px;color:var(--blue);font-size:.85rem;font-weight:600;margin-bottom:8px}
-.hero h1{font-family:"Kanit";font-size:clamp(3.4rem,7vw,6.5rem);line-height:.96;letter-spacing:-2px;margin:10px 0 24px}
-.hero h1 span{color:var(--blue)}
-.hero-desc{font-size:1.1rem;line-height:1.9;color:var(--muted);max-width:650px}
-.hero-buttons{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 23px;border-radius:999px;font-weight:600;transition:.25s;border:1px solid transparent}
-.btn.primary{background:var(--blue);color:#fff;box-shadow:0 10px 25px rgba(22,119,255,.22)}
-.btn.primary:hover{transform:translateY(-3px);background:var(--blue-dark)}
-.btn.ghost{border-color:#cfe5f8;background:#fff;color:var(--blue)}
-.btn.ghost:hover{transform:translateY(-3px);background:var(--sky)}
+  <header class="navbar" id="top">
+    <a class="logo" href="#home">APICHAYA<span>.</span></a>
+    <button class="menu-toggle" aria-label="เปิดเมนู">☰</button>
+    <nav class="nav-links">
+      <a href="#home">หน้าหลัก</a>
+      <a href="#about">ประวัติ</a>
+      <a href="#activities">กิจกรรม</a>
+      <a href="#certificates">เกียรติบัตร</a>
+      <a href="#sop">SOP</a>
+      <a href="#contact">ติดต่อ</a>
+    </nav>
+  </header>
 
-.hero-card{background:#fff;border-radius:34px;padding:16px;box-shadow:var(--shadow);border:1px solid var(--line);transform:rotate(1.3deg)}
-.hero-image-wrap{border-radius:25px;overflow:hidden;background:var(--sky)}
-.hero-image{width:100%;display:block}
-.mini-info{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:18px 8px 4px}
-.mini-info div{padding:10px 12px;border-radius:15px;background:#f6fbff}
-.mini-info span,.mini-info strong{display:block}
-.mini-info span{font-size:.72rem;color:var(--muted)}
-.mini-info strong{font-size:.84rem;margin-top:2px}
+  <main>
+    <section class="hero section" id="home">
+      <div class="hero-text reveal">
+        <p class="eyebrow">PORTFOLIO • 2026</p>
+        <h1>นางสาวอภิชญา<br><span>แจ้น้อย</span></h1>
+        <p class="hero-desc">
+          นักเรียนแผนการเรียนวิทยาศาสตร์-คณิตศาสตร์
+          ผู้มีความสนใจด้านสุขภาพ การดูแลผู้อื่น และวิชาชีพพยาบาล
+        </p>
+        <div class="hero-buttons">
+          <a class="btn primary" href="#about">รู้จักฉันมากขึ้น</a>
+          <a class="btn ghost" href="#activities">ดูผลงาน</a>
+        </div>
+      </div>
 
-.section-heading{text-align:center;margin-bottom:45px}
-.section-heading h2{font-family:"Kanit";font-size:clamp(2.2rem,4vw,3.3rem);margin-bottom:6px}
-.section-heading>p:last-child{color:var(--muted)}
+      <div class="hero-card reveal">
+        <div class="hero-image-wrap">
+          <img src="1.png" alt="หน้าปก Portfolio ของอภิชญา" class="hero-image">
+        </div>
+        <div class="mini-info">
+          <div><span>โรงเรียน</span><strong>กระทุ่มแบน “วิเศษสมุทคุณ”</strong></div>
+          <div><span>แผนการเรียน</span><strong>วิทยาศาสตร์-คณิตศาสตร์</strong></div>
+          <div><span>เป้าหมาย</span><strong>ศึกษาต่อด้านพยาบาลศาสตร์</strong></div>
+        </div>
+      </div>
+    </section>
 
-.about-grid{display:grid;grid-template-columns:.72fr 1.28fr;gap:50px;align-items:center}
-.profile-photo{background:#fff;border-radius:28px;padding:13px;box-shadow:var(--shadow);border:1px solid var(--line)}
-.profile-photo img{width:100%;display:block;border-radius:20px}
-.info-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}
-.card-label,.tag{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:1.3px;color:var(--blue);background:var(--sky);padding:6px 10px;border-radius:999px}
-.info-card h3{font-family:"Kanit";font-size:1.8rem;margin:12px 0 8px}
-.info-card p,.sop-card p{color:var(--muted);line-height:1.9}
-.facts{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-top:14px}
-.fact{display:flex;gap:12px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:18px;padding:15px;box-shadow:0 8px 25px rgba(20,90,140,.06)}
-.fact>span{font-size:1.35rem}.fact small,.fact b{display:block}.fact small{color:var(--muted);font-size:.72rem}.fact b{font-size:.85rem}
+    <section class="section about" id="about">
+      <div class="section-heading reveal">
+        <p class="eyebrow">PERSONAL PROFILE</p>
+        <h2>ประวัติส่วนตัว</h2>
+        <p>ตัวตน ความสนใจ และเส้นทางที่กำลังเดินไปสู่เป้าหมาย</p>
+      </div>
 
-.sop-section{padding-top:40px}
-.sop-card{position:relative;background:linear-gradient(135deg,#fff,#f2f9ff);border:1px solid var(--line);border-radius:30px;padding:45px 55px;box-shadow:var(--shadow);overflow:hidden}
-.quote-mark{position:absolute;right:35px;top:-10px;font-family:Georgia;font-size:8rem;color:#dcefff;line-height:1}
-.sop-card p{position:relative;margin-bottom:18px}.sop-card p:last-child{margin-bottom:0}
+      <div class="about-grid">
+        <div class="profile-photo reveal">
+          <img src="3.png" alt="ประวัติส่วนตัวของอภิชญา">
+        </div>
 
-.activity-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.activity-card{background:#fff;border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:0 12px 32px rgba(20,90,140,.08);transition:.3s}
-.activity-card:hover{transform:translateY(-7px);box-shadow:var(--shadow)}
-.activity-card img{width:100%;aspect-ratio:707/1000;object-fit:cover;display:block}
-.activity-body{padding:20px}
-.activity-body h3{font-family:"Kanit";font-size:1.35rem;margin:11px 0 6px}
-.activity-body p{color:var(--muted);font-size:.9rem;line-height:1.75}
+        <div class="profile-content reveal">
+          <div class="info-card">
+            <span class="card-label">ABOUT ME</span>
+            <h3>สวัสดีค่ะ ฉันชื่ออภิชญา</h3>
+            <p>
+              ดิฉันเป็นนักเรียนที่สนใจด้านสุขภาพและการช่วยเหลือผู้อื่น
+              มีความรับผิดชอบ อดทน และพร้อมเรียนรู้จากประสบการณ์ใหม่ ๆ
+              โดยมีความตั้งใจที่จะพัฒนาตนเองเพื่อศึกษาต่อในสายพยาบาลศาสตร์
+            </p>
+          </div>
 
-.certificates{background:linear-gradient(180deg,transparent,#f4faff,transparent)}
-.certificate-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.certificate-card{border:1px solid var(--line);background:#fff;border-radius:25px;padding:12px;box-shadow:var(--shadow);cursor:pointer;text-align:left;transition:.3s}
-.certificate-card:hover{transform:translateY(-7px)}
-.certificate-card img{width:100%;display:block;border-radius:17px}
-.certificate-card span{display:block;color:var(--blue);font-weight:600;padding:13px 6px 4px}
+          <div class="facts">
+            <div class="fact"><span>🎂</span><div><small>วันเกิด</small><b>24 เมษายน 2552</b></div></div>
+            <div class="fact"><span>🇹🇭</span><div><small>สัญชาติ</small><b>ไทย</b></div></div>
+            <div class="fact"><span>📚</span><div><small>แผนการเรียน</small><b>วิทยาศาสตร์-คณิตศาสตร์</b></div></div>
+            <div class="fact"><span>🩺</span><div><small>ความสนใจ</small><b>สุขภาพและการพยาบาล</b></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.gallery-item{border:0;background:#fff;padding:8px;border-radius:22px;box-shadow:0 10px 30px rgba(20,90,140,.08);cursor:pointer;overflow:hidden}
-.gallery-item img{width:100%;display:block;border-radius:16px;transition:.4s}
-.gallery-item:hover img{transform:scale(1.035)}
+    <section class="section sop-section" id="sop">
+      <div class="section-heading reveal">
+        <p class="eyebrow">STATEMENT OF PURPOSE</p>
+        <h2>เหตุผลและแรงบันดาลใจ</h2>
+      </div>
 
-.contact{padding-top:40px}
-.contact-card{display:flex;align-items:center;justify-content:space-between;gap:30px;background:var(--blue);color:#fff;border-radius:30px;padding:42px 48px;box-shadow:0 18px 45px rgba(22,119,255,.25)}
-.contact-card .eyebrow{color:#d9efff}.contact-card h2{font-family:"Kanit";font-size:2rem;margin-bottom:5px}.contact-card p:last-child{color:#e5f4ff;line-height:1.7}
-.contact-card .btn{background:#fff;color:var(--blue)}
+      <div class="sop-card reveal">
+        <div class="quote-mark">“</div>
+        <p>
+          ดิฉันสนใจศึกษาต่อด้านพยาบาลศาสตร์ เพราะมีความสนใจด้านสุขภาพ
+          และชอบดูแลช่วยเหลือผู้อื่นทั้งด้านร่างกายและจิตใจ การได้เห็นผู้อื่น
+          มีสุขภาพที่ดีขึ้นและกลับมามีรอยยิ้ม ทำให้ดิฉันรู้สึกมีความสุขและ
+          เป็นแรงบันดาลใจให้พัฒนาตนเองอย่างต่อเนื่อง
+        </p>
+        <p>
+          จากการฝึกประสบการณ์วิชาชีพ ณ โรงพยาบาลกระทุ่มแบน และการเข้าร่วม
+          กิจกรรมด้านสุขภาพ ทำให้ดิฉันได้เห็นการทำงานของบุคลากรในโรงพยาบาล
+          ได้เรียนรู้การทำงานอย่างเป็นระบบ การสื่อสาร การทำงานร่วมกับผู้อื่น
+          รวมถึงความละเอียดรอบคอบที่จำเป็นต่อวิชาชีพ
+        </p>
+        <p>
+          ในอนาคตดิฉันตั้งใจศึกษาหาความรู้และฝึกฝนตนเองให้มีความสามารถ
+          พร้อมยึดมั่นในความรับผิดชอบและจรรยาบรรณของวิชาชีพ เพื่อเป็นส่วนหนึ่ง
+          ในการดูแลและช่วยเหลือผู้ป่วยอย่างดีที่สุด
+        </p>
+      </div>
+    </section>
 
-footer{text-align:center;padding:35px 20px;color:#7890a4;font-size:.82rem}
+    <section class="section" id="activities">
+      <div class="section-heading reveal">
+        <p class="eyebrow">ACTIVITIES</p>
+        <h2>กิจกรรมและประสบการณ์</h2>
+        <p>ประสบการณ์ที่ช่วยพัฒนาทักษะ ความรับผิดชอบ และการทำงานร่วมกับผู้อื่น</p>
+      </div>
 
-.modal{position:fixed;inset:0;background:rgba(8,35,60,.78);backdrop-filter:blur(7px);display:none;align-items:center;justify-content:center;padding:25px;z-index:100}
-.modal.open{display:flex}
-.modal-box{width:min(800px,95vw);max-height:92vh;overflow:auto;background:#fff;border-radius:25px;padding:14px;box-shadow:0 30px 80px rgba(0,0,0,.25)}
-.modal-box img{width:100%;display:block;border-radius:17px}
-.modal-box h3{text-align:center;font-family:"Kanit";padding:14px 10px 7px}
-.modal-close{position:fixed;right:25px;top:20px;width:45px;height:45px;border:0;border-radius:50%;background:#fff;color:var(--blue);font-size:2rem;line-height:1;cursor:pointer;z-index:101}
+      <div class="activity-grid">
+        <article class="activity-card reveal">
+          <img src="4.png" alt="ฝึกประสบการณ์วิชาชีพและกิจกรรมประชาสัมพันธ์">
+          <div class="activity-body">
+            <span class="tag">HEALTHCARE</span>
+            <h3>ฝึกประสบการณ์วิชาชีพ</h3>
+            <p>เรียนรู้การทำงานในโรงพยาบาล การประชาสัมพันธ์ การจัดเตรียมยา และการทำงานอย่างเป็นระบบ</p>
+          </div>
+        </article>
 
-.reveal{opacity:0;transform:translateY(25px);transition:opacity .7s ease,transform .7s ease}
-.reveal.show{opacity:1;transform:translateY(0)}
+        <article class="activity-card reveal">
+          <img src="5.png" alt="Siriraj Open House 2025">
+          <div class="activity-body">
+            <span class="tag">OPEN HOUSE</span>
+            <h3>Siriraj Open House 2025</h3>
+            <p>ทดลองกิจกรรมด้านการพยาบาล เช่น การช่วยเหลือเด็กเมื่อสำลักอาหาร การให้อาหารผ่านสาย และการดูแลผู้ป่วย</p>
+          </div>
+        </article>
 
-@media(max-width:900px){
-  .nav-links{position:absolute;top:65px;left:0;right:0;display:none;flex-direction:column;background:#fff;border:1px solid var(--line);padding:10px;border-radius:17px;box-shadow:var(--shadow)}
-  .nav-links.active{display:flex}.menu-toggle{display:block}
-  .hero{grid-template-columns:1fr;gap:35px;text-align:center}.hero-desc{margin:auto}.hero-buttons{justify-content:center}
-  .hero-card{width:min(520px,100%);margin:auto}
-  .about-grid{grid-template-columns:1fr}
-  .profile-photo{width:min(550px,100%);margin:auto}
-  .activity-grid,.certificate-grid{grid-template-columns:repeat(2,1fr)}
-  .gallery{grid-template-columns:repeat(2,1fr)}
-  .contact-card{flex-direction:column;text-align:center}
-}
-@media(max-width:600px){
-  .section{padding:75px 0}.navbar{margin-top:8px}
-  .hero h1{font-size:3.4rem}.hero-desc{font-size:1rem}
-  .mini-info,.facts,.activity-grid,.certificate-grid,.gallery{grid-template-columns:1fr}
-  .sop-card{padding:30px 24px}.quote-mark{font-size:6rem}
-  .contact-card{padding:32px 24px}
-}
+        <article class="activity-card reveal">
+          <img src="6.png" alt="Mahidol Open House และอาสาพัฒนาเยาวชน">
+          <div class="activity-body">
+            <span class="tag">LEARNING</span>
+            <h3>Mahidol Open House</h3>
+            <p>ฝึกการปฐมพยาบาล การกดหน้าอก CPR และเรียนรู้กิจกรรมสุขภาพ พร้อมพัฒนาทักษะการทำงานเป็นทีม</p>
+          </div>
+        </article>
 
+        <article class="activity-card reveal">
+          <img src="7.png" alt="กิจกรรมงานวิจัยและขายของ">
+          <div class="activity-body">
+            <span class="tag">TEAMWORK</span>
+            <h3>งานวิจัยและกิจกรรมขายของ</h3>
+            <p>ฝึกค้นคว้า วิเคราะห์ข้อมูล รับผิดชอบงาน และแก้ไขปัญหาเฉพาะหน้าเมื่อทำงานร่วมกับผู้อื่น</p>
+          </div>
+        </article>
+
+        <article class="activity-card reveal">
+          <img src="8.png" alt="กิจกรรมทำกระทงและขบวนกีฬาสี">
+          <div class="activity-body">
+            <span class="tag">VOLUNTEER</span>
+            <h3>กิจกรรมจิตอาสาและโรงเรียน</h3>
+            <p>ร่วมทำกระทงถวายวัดและเป็นตัวแทนถือพานในขบวนกีฬาสี ได้ฝึกความรับผิดชอบ ความอดทน และการทำงานเป็นทีม</p>
+          </div>
+        </article>
+
+        <article class="activity-card reveal">
+          <img src="4.png" alt="รวมกิจกรรมจาก Portfolio">
+          <div class="activity-body">
+            <span class="tag">GROWTH</span>
+            <h3>เรียนรู้จากทุกกิจกรรม</h3>
+            <p>ทุกประสบการณ์ช่วยให้เกิดการเรียนรู้และพัฒนาทักษะที่สามารถต่อยอดสู่การเรียนและวิชาชีพในอนาคต</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section certificates" id="certificates">
+      <div class="section-heading reveal">
+        <p class="eyebrow">CERTIFICATES</p>
+        <h2>เกียรติบัตรและการอบรม</h2>
+        <p>รวบรวมหลักฐานการเรียนรู้และการเข้าร่วมกิจกรรมที่สำคัญ</p>
+      </div>
+
+      <div class="certificate-grid">
+        <button class="certificate-card reveal" data-image="9.png" data-title="หลักสูตรการปรับตัวต่อการเปลี่ยนแปลงสภาพภูมิอากาศ">
+          <img src="9.png" alt="เกียรติบัตรด้านการปรับตัวต่อการเปลี่ยนแปลงสภาพภูมิอากาศ">
+          <span>ดูเกียรติบัตร ↗</span>
+        </button>
+        <button class="certificate-card reveal" data-image="10.png" data-title="อบรมวิทยาศาสตร์สุขภาพ และการแข่งขันตอบปัญหาภาษาอังกฤษ">
+          <img src="10.png" alt="เกียรติบัตรวิทยาศาสตร์สุขภาพและภาษาอังกฤษ">
+          <span>ดูเกียรติบัตร ↗</span>
+        </button>
+        <button class="certificate-card reveal" data-image="11.png" data-title="อบรมด้านสุขภาพและการพยาบาล">
+          <img src="11.png" alt="เกียรติบัตรด้านสุขภาพและการพยาบาล">
+          <span>ดูเกียรติบัตร ↗</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="section gallery-section">
+      <div class="section-heading reveal">
+        <p class="eyebrow">PORTFOLIO GALLERY</p>
+        <h2>ผลงานทั้งหมด</h2>
+      </div>
+
+      <div class="gallery">
+        <button class="gallery-item reveal" data-image="1.png"><img src="1.png" alt="Portfolio ปก"></button>
+        <button class="gallery-item reveal" data-image="2.png"><img src="2.png" alt="Statement of Purpose"></button>
+        <button class="gallery-item reveal" data-image="3.png"><img src="3.png" alt="Personal Profile"></button>
+        <button class="gallery-item reveal" data-image="4.png"><img src="4.png" alt="Activity 1"></button>
+        <button class="gallery-item reveal" data-image="5.png"><img src="5.png" alt="Activity 2"></button>
+        <button class="gallery-item reveal" data-image="6.png"><img src="6.png" alt="Activity 3"></button>
+        <button class="gallery-item reveal" data-image="7.png"><img src="7.png" alt="Activity 4"></button>
+        <button class="gallery-item reveal" data-image="8.png"><img src="8.png" alt="Activity 5"></button>
+        <button class="gallery-item reveal" data-image="12.png"><img src="12.png" alt="หน้าปิด Portfolio"></button>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="contact-card reveal">
+        <div>
+          <p class="eyebrow">CONTACT</p>
+          <h2>ขอบคุณที่เข้ามาชม Portfolio</h2>
+          <p>หวังว่าผลงานและประสบการณ์ของดิฉันจะช่วยให้ทุกคนได้รู้จักตัวตนและเป้าหมายของดิฉันมากขึ้น</p>
+        </div>
+        <a class="btn primary" href="#top">กลับขึ้นด้านบน ↑</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> Apichaya Jaenoi • Portfolio</p>
+  </footer>
+
+  <div class="modal" id="imageModal" aria-hidden="true">
+    <button class="modal-close" aria-label="ปิด">×</button>
+    <div class="modal-box">
+      <img id="modalImage" src="" alt="">
+      <h3 id="modalTitle"></h3>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
